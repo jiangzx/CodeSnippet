@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+	  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="true" />
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="multipleResultSetsEnabled" value="true" />
+		<setting name="useColumnLabel" value="true" />
+		<setting name="useGeneratedKeys" value="false" />
+		<setting name="autoMappingBehavior" value="PARTIAL" />
+		<setting name="defaultExecutorType" value="SIMPLE" />
+		<setting name="defaultStatementTimeout" value="25" />
+		<setting name="safeRowBoundsEnabled" value="false" />
+		<setting name="mapUnderscoreToCamelCase" value="false" />
+		<setting name="localCacheScope" value="SESSION" />
+		<setting name="jdbcTypeForNull" value="OTHER" />
+		<setting name="callSettersOnNulls" value="true"/>
+		<setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString" />
+		<setting name="defaultStatementTimeout" value="600"/> <!-- seconds -->
+	</settings>
+	
+<!-- 	<typeAliases> -->
+<!-- 	   <package name="com.webex.moa.report.model"/> -->
+<!-- 	   <package name="com.webex.moa.report.model.table"/> -->
+<!-- 	</typeAliases> -->
+	
+	<plugins>
+	    <plugin interceptor="com.github.pagehelper.PageHelper">
+	        <property name="offsetAsPageNum" value="false"/>
+	        <property name="rowBoundsWithCount" value="true"/>
+	        <property name="pageSizeZero" value="true"/>
+	        <property name="reasonable" value="true"/>
+	    </plugin>
+	</plugins>
+</configuration>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pkg.demo.dao.TCountriesMapper" >
+  <resultMap id="BaseResultMap" type="pkg.demo.modal.TCountries" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="cfgdb_id" property="cfgdbId" jdbcType="INTEGER" />
+    <result column="common_name" property="commonName" jdbcType="VARCHAR" />
+    <result column="two_letter" property="twoLetter" jdbcType="VARCHAR" />
+    <result column="three_letter" property="threeLetter" jdbcType="VARCHAR" />
+    <result column="tele_code" property="teleCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, cfgdb_id, common_name, two_letter, three_letter, tele_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_countries
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_countries
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pkg.demo.modal.TCountries" >
+    insert into t_countries (id, cfgdb_id, common_name, 
+      two_letter, three_letter, tele_code
+      )
+    values (#{id,jdbcType=INTEGER}, #{cfgdbId,jdbcType=INTEGER}, #{commonName,jdbcType=VARCHAR}, 
+      #{twoLetter,jdbcType=VARCHAR}, #{threeLetter,jdbcType=VARCHAR}, #{teleCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="pkg.demo.modal.TCountries" >
+    insert into t_countries
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cfgdbId != null" >
+        cfgdb_id,
+      </if>
+      <if test="commonName != null" >
+        common_name,
+      </if>
+      <if test="twoLetter != null" >
+        two_letter,
+      </if>
+      <if test="threeLetter != null" >
+        three_letter,
+      </if>
+      <if test="teleCode != null" >
+        tele_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cfgdbId != null" >
+        #{cfgdbId,jdbcType=INTEGER},
+      </if>
+      <if test="commonName != null" >
+        #{commonName,jdbcType=VARCHAR},
+      </if>
+      <if test="twoLetter != null" >
+        #{twoLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="threeLetter != null" >
+        #{threeLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="teleCode != null" >
+        #{teleCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pkg.demo.modal.TCountries" >
+    update t_countries
+    <set >
+      <if test="cfgdbId != null" >
+        cfgdb_id = #{cfgdbId,jdbcType=INTEGER},
+      </if>
+      <if test="commonName != null" >
+        common_name = #{commonName,jdbcType=VARCHAR},
+      </if>
+      <if test="twoLetter != null" >
+        two_letter = #{twoLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="threeLetter != null" >
+        three_letter = #{threeLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="teleCode != null" >
+        tele_code = #{teleCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pkg.demo.modal.TCountries" >
+    update t_countries
+    set cfgdb_id = #{cfgdbId,jdbcType=INTEGER},
+      common_name = #{commonName,jdbcType=VARCHAR},
+      two_letter = #{twoLetter,jdbcType=VARCHAR},
+      three_letter = #{threeLetter,jdbcType=VARCHAR},
+      tele_code = #{teleCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

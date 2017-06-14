@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.6.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/DECORATION/1.6.0 http://maven.apache.org/xsd/decoration-1.6.0.xsd"
+    name="cmse-webex-cloudservice-threads-tool">
+  
+  <body>
+    <menu name="Overview">
+      <item name="Introduction" href="main.html"/>
+      <item name="Project Dependencies" href="dependencies.html"/>
+      <item name="Project Summary" href="project-summary.html"/>
+      <item name="Distribution Management" href="distribution-management.html"/>
+    </menu>
+    
+    <menu name="Document">
+      <item name="Java Doc" href="apidocs/index.html"/>
+      <item name="Source Code" href="https://bitbucket-eng-chn-sjc1.cisco.com/bitbucket/projects/CCTGCLOUD/repos/cloudtools-avportal/browse/code-research/cmse-common-threads?at=refs%2Fheads%2Fcode-research"/>
+    </menu>
+
+    <menu name="Examples">
+      <item name="Use ParallelProcessor class to handle parallel tasks" href="use_ParallelProcessor_class_to_handle_parallel_task.html"/>
+      <item name="Use TaskGroupController class to handle parallel tasks" href="use_TaskGroupController_class_to_handle_parallel_task.html"/>
+      <item name="Use TaskGroupController class to handle serial tasks" href="use_TaskGroupController_class_to_handle_serial_task.html"/>
+      <item name="Use TaskGroupController class to handle serial tasks combined with parallel tasks" href="use_TaskGroupController_class_to_handle_serial_task_compine_with_parallel_task.html"/>
+    </menu>
+  </body>
+  
+  <publishDate position="right"/>
+  <version position="right"/>
+  <poweredBy>
+    <logo name="Cisco Webex" href="#"
+          img="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJcAAAA0CAMAAACwyVoLAAAAulBMVEX///+Mxj4AAAAAk9MAjdEAkNKFwy2JxTfh79GKxTrA3vEAi9Dc7MmHxDKu1n5ost/X6cKwsLD5/PV0cnLu9uWBwSH0+e7P5rak0W7D4KLy+fz39/fG4qibzVySyUq73Jbn8tq02Yrh4eGgz2bf7vhdXFzFxcXW1tZPTU1APj+PxOa7uruo03ay1e1KpdqayuiJiImioaFoZ2ckICEUDxArndcAhM59uuLO5vQ2NDUsKSp4vgCVlJR+fX2v1hrPAAAHq0lEQVRYhe1YaXeiShCFZmkQQSUgRuO+xTUazdMk5v//rVfVCzRL5rw5bzwzH6bOzNAL0peqW7eK0TSwye35dF59LTRmrcNS+yPsixDyPD8T8sqmr6T1mwFxeyanDV4XJzLH6+b2R/jrRs49PpoQsvi9WBTrnclGjh9YJJeLCZstbofbRkDWlsfDLQWdm9zJNuQ9HS9vyCzOr8k7QTuz83uvbHJigHtzNllN7orrINie2QPDNSfzSW9yIAQ9tiLvi8nylUd8RVYwmafhv4+9klslrhNh7J9jlI/kpPHJEScrMSm+0C/GdazENSfPGKher4cZy5WDTT4EH5f3ddgD+arENTkR8nHg7DqTjEs9HlkYfJB76smRPKfjxfs8xaX1jitg90eLQanApb3fFddSOfSLUeYh1ftJ65nApHdSEcj7YfWuGbk6S/6CKzYS1/KLp8MB3TkXubH52mA6ckIuyEk4LoyiKPzluMBhBz6acyljuCbCLS3EteGT3jvWg5aQsQ/5M63+GX82fzkuOIh8HBeL44c4kMcRxAoWD2fhwvNt03rn9fMVJ3B3qseOrdt3wKVNuICTBx4Xrve9B673nGtHfgO//8YmX6lK3AsXgFhsWouiGsHiImP2cqPcsFAnd8T1/+wvrp+zv7h+zv4IXKNmkjSdnLwruKJ6kiRO9M1vZ9fdbleb/adzxttg6yjzMNgGnbZ6R7DdBmLYnNrC+k8ZNIkrGlOx645HZVBrw/RME/5ajatY2zUajZfCfVe+NrSpPVaWnZjSOFEWRjH1Oa7mwHZ116XUhYtNnwq4xrHPdins+nGQezdNu3iWYRgWGPzr7YXT3kzLq+Xu68IdXheP1d2Bsj70dd2dKguPvm7XcTCOEY4+BX8ObArDfqjgCgeAynanwTiYwlWncV11AsIxzTfwxd7wENlOoIDlroprbxkeujPUXd1WCNF3dV2nYW4hxuvU1vV4KpgVBQCSDsIMV5/qvt7kC2HiwtvZmdevDMqaO6m7M0zD8Hj8ap5h7RVYa1PuBFS305BoYQywhIOYtW2dbuG6RXcoWRcNKACTuFyY5egwhrf4lLydASxzr7hl7aXAAIjZSDcUmE14aj/dgBmYnx1Rt9mLJ7Buq/mhhQNwdCBwodOH6i7wFsgm3G5YhtXI7e4QGHcfBm4nlrtAQUPiBw/FadzGFHEpjIMFv62FGESVMAgMYhU7Ahd3qmpb+GEgXWK9FXZxbZ9iERAZxlRGpq4iiwOXBltgVJQtoDchG/xAKxj4lk4lLr+Qf/xV2uJgsyRabwCBZyKQzzIkWDOTDQgRlWdGELUnOM+XjIti3X/UNIhT6WCeEhHH5Q9Lu/guuAoxK0QRrZatvoghLClU09rAaD1MMdoj4H7KuMTHo51Yp53So3ETX8CRnslbWxBXZn7B0Iti2LDQT6AZ+XDja4/4EEhBWWSldzqgklzDVK0VBs5EqXNymZN7Lj4GKV6x28jgMopdc+RCe/LTMPCQwoJkHN/q0BR5zjDnGC46rtiFlIG8mBUUStpOIRMTEiUvs9fmCQjij34ZpQehZDpIfsi3oGygwXbIbnrSyvbEvAysMVDniwbusdbyVqCYUWYh8IvzA+LFBpCEOtsZ+ox6PgpBhaEEt7/tc5B+CfqF18WiweolvReiahS1hGUOo0/f5UQZy7j1XaZLiMu3K+3ze1yY1xyXZVaalzqICapZKzxgJNKtTQXRHK4OWjvmJ4L77Po3xuNYkRXoL4wjKGijVm1pmmJQK1QO+IM1A2sOF3WfMw5kg5WCvlslBNIAF3uLovFO5FopX3m7gHJVVQWMW53HkwsZFvMIL25H7P+gU3bschVC27KHdJHSP4aFgnrBYm4WXgDfeMzoLjqvJg8NFQFKqpUgDMM2/7VIk/wuiAh2QhAgr1ve7oLx0cziSoICVuheY3wysEnWH6gB4ALQC96aRYXmUdjY9jG8TO+d0m5dsPZiqVUvhWVa0jtQKllvWFFIIW5xhGyS9RolHwgidRxre5naOk/ful1ocbn1RT9wrQwkVE0how1TqeCGlXMtS+kxzcLxBBidjivrQL0qVFhMHwWuMv9g16VstK9ymCEh7Bi5uL0Ua0MI/Xofexy5ADF1Az2rPn1aanQguKj2AleuGddYZyKxohuKlftiCjT5MoUVfK3eN8UvHTVWEAWq+CgC4c81ytBIu6L8NFm/6uoqsDZ2RjJJLxjJHLC1KdzVNfKhwwquymvi67yoSBuy2pMhcdA70+zoBL55fN77YCeOf5W3SuA1/CxT9tmHBtqs4cnj91Yex8zM42zH+fYZczH3/QHRAg/anSRqt9v1oY69YF9ChBxpwgeSPXh0YNd5HGAQ+8pH1R4bBmNdm4HtGiZKByM9alYubqyLVOUVv89yTScEIve9BoFjyOLYjm0fPxClMyFHsNvxffyehd04t8vt5R/2PeuZ8AcrjsXCeq3ogRpmlgf48BhqsPplMYYTCj1qMrB9/l0CH/ydkVwexjYmXjimNnVLu8JmDcvDHgJ7C8/gPpp5nmeVJPfNM//JGjH8z+5cRuFCqSaOnoKBrg86w0TZastfhs3hFHD1c7updWuXvYG92MtVYOlCVMuVAFdn/wLhLKEw8GqhTQAAAABJRU5ErkJggg=="/>
+  </poweredBy>
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-fluido-skin</artifactId>
+    <version>1.5</version>
+  </skin>
+  <custom>
+  <fluidoSkin>
+    <topBarEnabled>true</topBarEnabled>
+    <sideBarEnabled>false</sideBarEnabled>
+  </fluidoSkin>
+  </custom>
+</project>
