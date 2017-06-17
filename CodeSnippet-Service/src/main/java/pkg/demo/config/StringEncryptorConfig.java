@@ -6,12 +6,12 @@ import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 /**
- * Jasypt configuration
+ * 加密组件
  * @author zhajiang
  *
  */
 @Configuration
-public class JasyptEncryptConfig {
+public class StringEncryptorConfig {
 
     @Bean(name="jasyptStringEncryptor")
     static public StringEncryptor stringEncryptor() {

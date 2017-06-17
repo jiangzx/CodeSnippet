@@ -16,16 +16,15 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<apache.commons.lang3.version>3.4</apache.commons.lang3.version>
-		<apache.poi.version>3.14</apache.poi.version>
-		<alibaba.fastjson.version>1.2.23</alibaba.fastjson.version>
+		<apache.commons.lang3.version>3.5</apache.commons.lang3.version>
+		<apache.poi.version>3.16</apache.poi.version>
+		<alibaba.fastjson.version>1.2.33</alibaba.fastjson.version>
 		<oracle.version>11.2.0.3.0</oracle.version>
-		<io.parallec.version>0.10.3</io.parallec.version>
-		<springboot.mybatis.version>1.1.1</springboot.mybatis.version>
-		<springboot.jasypt.version>1.9</springboot.jasypt.version>
-		<quartz.version>2.2.3</quartz.version>
+		<io.parallec.version>0.10.4</io.parallec.version>
+		<springboot.jasypt.version>1.12</springboot.jasypt.version>
+		<quartz.version>2.3.0</quartz.version>
 		<project.package.layout>JAR</project.package.layout>
-		<project.mainClass>pkg.demo.Main</project.mainClass>
+		<project.mainClass>pkg.demo.ServiceInstanceMain</project.mainClass>
 	</properties>
 
 	<dependencies>
@@ -61,6 +60,12 @@
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>${springboot.mybatis.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.tomcat</groupId>
+					<artifactId>tomcat-jdbc</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		
 		<dependency>
@@ -186,12 +191,18 @@
 			<groupId>org.quartz-scheduler</groupId>
 			<artifactId>quartz</artifactId>
 			<version>${quartz.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.mchange</groupId>
+					<artifactId>c3p0</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		
 		<dependency>
 		  <groupId>com.fasterxml.uuid</groupId>
 		  <artifactId>java-uuid-generator</artifactId>
-		  <version>3.1.3</version>
+		  <version>3.1.4</version>
 		  <exclusions>
 	        <exclusion>
 	            <groupId>log4j</groupId>
@@ -219,7 +230,7 @@
 	    <dependency>
 	        <groupId>org.mybatis.generator</groupId>
 	        <artifactId>mybatis-generator-maven-plugin</artifactId>
-	        <version>1.3.2</version>
+	        <version>1.3.5</version>
 	    </dependency>
 		<!--
 		<dependency>
@@ -248,41 +259,32 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar-no-fork</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<attach>true</attach>
-				</configuration>
-			</plugin>
-			<!-- 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<includes>
-						<include>**/demo/**/*.java</include>
-					</includes>
-				</configuration>
-			</plugin>
-			 -->
-			<plugin>
 	            <groupId>org.mybatis.generator</groupId>
 	            <artifactId>mybatis-generator-maven-plugin</artifactId>
-	            <version>1.3.2</version>
+	            <version>1.3.5</version>
 	            <configuration>
 	                <verbose>true</verbose>
 	                <overwrite>true</overwrite>
 	            </configuration>
 	        </plugin>
 		</plugins>
+		<resources>
+			<resource>
+				<directory>src${file.separator}main${file.separator}java</directory>
+				<includes>
+					<include>**${file.separator}*.*</include>
+				</includes>
+				<excludes>
+					<exclude>**${file.separator}*.java</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src${file.separator}main${file.separator}resources</directory>
+				<includes>
+					<include>**${file.separator}*</include>
+				</includes>
+			</resource>
+		</resources>
 	</build>
 		
 	<reporting>

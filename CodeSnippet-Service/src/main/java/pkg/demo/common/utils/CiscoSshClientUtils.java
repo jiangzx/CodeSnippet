@@ -28,7 +28,7 @@ import net.sf.expectit.ExpectBuilder;
 import net.sf.expectit.ExpectIOException;
 import net.sf.expectit.matcher.Matcher;
 import pkg.demo.common.pojo.CiscoSshClientExpectRunner;
-import pkg.demo.common.pojo.CiscoSshClientParams;
+import pkg.demo.common.pojo.CiscoSshClientArgs;
 import pkg.demo.common.pojo.CiscoSshDeviceCode;
 import pkg.demo.common.pojo.CustomException;
 import pkg.demo.config.SystemConstConfig;
@@ -42,7 +42,7 @@ import pkg.demo.config.SystemConstConfig;
 public class CiscoSshClientUtils {
 	// private ThreadLocal<Expect> threadLocal = new ThreadLocal<Expect>();
 	private static final Logger logger = LoggerFactory.getLogger(CiscoSshClientUtils.class);
-	private CiscoSshClientParams credentials;
+	private CiscoSshClientArgs credentials;
 	private Session session;
 	private Channel channel;
 	private boolean connected;
@@ -51,7 +51,7 @@ public class CiscoSshClientUtils {
 	private final static String DISABLE_OUTPUT_BUFFERING = "terminal length 0";
 	private final static String ERROR = "ERROR_MSG";
 	
-	public CiscoSshClientUtils(CiscoSshClientParams credentials) throws CustomException {
+	public CiscoSshClientUtils(CiscoSshClientArgs credentials) throws CustomException {
 		Security.insertProviderAt(new BouncyCastleProvider(), 1);
 		this.credentials = credentials;
 		int retryTimes = credentials.getRetryTimes();

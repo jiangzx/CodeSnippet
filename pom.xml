@@ -9,18 +9,18 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.5.RELEASE</version>
+		<version>1.5.4.RELEASE</version>
 	</parent>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
-		<logback.version>1.1.7</logback.version>
-		<slf4j.version>1.7.21</slf4j.version>
-		<jackson.version>2.8.2</jackson.version>
-		<mybatis.version>3.4.2</mybatis.version>
+		<logback.version>1.2.3</logback.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<jackson.version>2.8.8</jackson.version>
+		<mybatis.version>3.4.4</mybatis.version>
 		<mybatis.spring.version>1.3.1</mybatis.spring.version>
-		<pagehelper.version>4.1.6</pagehelper.version>
-		<mybatis.spring.boot.version>1.3.0</mybatis.spring.boot.version>
+		<pagehelper.version>5.0.2</pagehelper.version>
+		<springboot.mybatis.version>1.3.0</springboot.mybatis.version>
 		<release.global.version>1.0.0</release.global.version>
 	</properties>
 
@@ -91,16 +91,34 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
 			</plugin>
+			<!-- 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<argLine>-XX:-UseSplitVerifier</argLine>
 					<includes>
-						<include>**/com/webex/moa/**/*Test.java</include>
-						<include>**/com/webex/moa/**/*Tests.java</include>
+						<include>**/pkg/demo/test/**/*Sample.java</include>
 					</includes>
 				</configuration>
+			</plugin>  -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>
+								${project.build.directory}/lib
+							</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -111,7 +129,7 @@
 						<haltOnFailure>false</haltOnFailure>
 						<regexes>
 							<regex>
-								<pattern>com.webex.moa.*</pattern>
+								<pattern>pkg.demo.*</pattern>
 								<branchRate>80</branchRate>
 								<lineRate>80</lineRate>
 							</regex>
@@ -147,24 +165,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>copy</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>
-								${project.build.directory}/lib
-							</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

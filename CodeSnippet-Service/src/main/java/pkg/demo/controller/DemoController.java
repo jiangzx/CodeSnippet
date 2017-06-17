@@ -13,13 +13,13 @@ import pkg.demo.service.IDemoService;
 
 //@CrossOrigin
 @RestController
-@RequestMapping("/api/demoCtrl")
+@RequestMapping("/api/demo")
 public class DemoController {
 
 	@Autowired
 	private IDemoService demoService;
 
-	@RequestMapping(value = "/getCountry/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/country/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getCountry(@PathVariable("id") int id) {
 		TCountries bean = demoService.getCountry(id);
 		return RestUtils.ok(bean);

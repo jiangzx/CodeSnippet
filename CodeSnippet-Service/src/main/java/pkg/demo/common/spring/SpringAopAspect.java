@@ -11,7 +11,7 @@ import org.springframework.web.context.request.WebRequestInterceptor;
 
 @Component
 public class SpringAopAspect implements WebRequestInterceptor  {
-	public final static String TRACKID_KEY = "mylog_indictor";
+	public final static String TRACKID_KEY = "web_log_prefix";
 
 	@Override
 	public void postHandle(WebRequest request, ModelMap model) throws Exception {

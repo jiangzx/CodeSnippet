@@ -13,7 +13,7 @@
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.mainClass>pkg.demo.Main</project.mainClass>
+		<project.mainClass>pkg.demo.DiscoveryCenterMain</project.mainClass>
 		<project.package.layout>JAR</project.package.layout>
 	</properties>
 	<dependencies>

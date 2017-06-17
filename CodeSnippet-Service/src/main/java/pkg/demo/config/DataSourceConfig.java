@@ -8,8 +8,9 @@ import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -19,25 +20,32 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import pkg.demo.common.datasource.DBSelector;
-
+import pkg.demo.common.datasource.DataSourceBean;
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan(basePackages = DataSourceConfig.BASE_PACKAGES,sqlSessionFactoryRef = "defaultSqlSessionFactory")
+@MapperScan(basePackages = DataSourceConfig.BASE_PACKAGES,sqlSessionFactoryRef = "basicSqlSessionFactory")
 public class DataSourceConfig {
 	
 	public static final String BASE_PACKAGES = "pkg.demo.dao";
-	public static final String MAPPER_XML_PATH = "classpath:mybatis/base/*.xml";
+	public static final String MAPPER_XML_PATH = "classpath:mybatis/**/*.xml";
 	public static final String CFG_XML_PATH = "classpath:mybatis-config.xml";
 
-	@Bean(name = "defaultDataSource")
+	@Autowired
+	private DataSourceBean dataSource;
+	
+	@Bean(name = "basicDataSource")
 	@Primary
-	@ConfigurationProperties(locations = "classpath:config/datasource.properties", prefix = "ds")
 	public DataSource defaultDataSource() {
-		return new BasicDataSource();
+		return DataSourceBuilder.create().type(BasicDataSource.class)
+				.driverClassName(dataSource.getDriverClassName())
+				.url(dataSource.getUrl())
+				.username(dataSource.getUsername())
+				.password(dataSource.getPassword())
+				.build();
 	}
 	
-	@Bean(name = "otherDataSource")
+	@Bean(name = "secondDataSource")
 	public DataSource dataSource() throws SQLException {
 		DBSelector selector = new DBSelector();
 		selector.setDefaultTargetDataSource(defaultDataSource());
@@ -45,9 +53,9 @@ public class DataSourceConfig {
 		return selector;
 	}
 
-    @Bean(name = "defaultSqlSessionFactory")
+    @Bean(name = "basicSqlSessionFactory")
 	@Primary
-	public SqlSessionFactory sqlSessionFactory(@Qualifier("defaultDataSource") DataSource dataSource) throws Exception {
+	public SqlSessionFactory sqlSessionFactory(@Qualifier("basicDataSource") DataSource dataSource) throws Exception {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource);
 		bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(MAPPER_XML_PATH));
@@ -55,9 +63,9 @@ public class DataSourceConfig {
 		return bean.getObject();
 	}
 	
-	@Bean(name = "defaultTransactionManager")
+	@Bean(name = "basicTransactionManager")
 	@Primary
-	public PlatformTransactionManager transactionManager(@Qualifier("defaultDataSource") DataSource dataSource) throws SQLException {
+	public PlatformTransactionManager transactionManager(@Qualifier("basicDataSource") DataSource dataSource) throws SQLException {
 		return new DataSourceTransactionManager(dataSource);
 	}
 

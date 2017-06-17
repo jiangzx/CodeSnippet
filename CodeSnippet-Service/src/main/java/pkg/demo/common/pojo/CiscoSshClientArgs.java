@@ -1,12 +1,12 @@
 package pkg.demo.common.pojo;
 
 /**
- * SSHCredentials
+ * 参数
  *
  * @author zhajiang
  *
  */
-public class CiscoSshClientParams {
+public class CiscoSshClientArgs {
 
 	private String hostname;
 	private String username;
@@ -20,7 +20,7 @@ public class CiscoSshClientParams {
 	private int chanReadTimeout = 60; // Channel
 	private int retryTimes = 3;
 
-	public CiscoSshClientParams(String hostname, String ipAddr, String username, String password, String enablePasswd) {
+	public CiscoSshClientArgs(String hostname, String ipAddr, String username, String password, String enablePasswd) {
 		this.ipAddr = ipAddr;
 		this.hostname = hostname;
 		this.username = username;
@@ -111,7 +111,7 @@ public class CiscoSshClientParams {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		CiscoSshClientParams other = (CiscoSshClientParams) obj;
+		CiscoSshClientArgs other = (CiscoSshClientArgs) obj;
 		if (hostname == null) {
 			if (other.hostname != null) {
 				return false;

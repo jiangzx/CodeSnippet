@@ -3,6 +3,7 @@ package pkg.demo.dao;
 import pkg.demo.modal.TCountries;
 
 public interface TCountriesMapper {
+	
     int deleteByPrimaryKey(Integer id);
 
     int insert(TCountries record);

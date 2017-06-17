@@ -9,12 +9,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import pkg.demo.Main;
+import pkg.demo.ServiceInstanceMain;
 import pkg.demo.common.utils.JasEncryptUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-@ContextConfiguration(classes = { Main.class })
+@ContextConfiguration(classes = { ServiceInstanceMain.class })
 public class JasEncryptUtilsSample {
 	private static final Logger logger = LoggerFactory.getLogger(JasEncryptUtilsSample.class);
 	@Autowired
